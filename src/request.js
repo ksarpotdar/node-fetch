@@ -84,7 +84,10 @@ export default class Request {
 
 		// eslint-disable-next-line no-eq-null, eqeqeq
 		if ((init.body != null || isRequest(input) && input.body !== null) &&
-			(method === 'GET' || method === 'HEAD')) {
+			(method === 'GET' || method === 'HEAD') 
+		    && (!init.overrideGETbody  || isRequest(input) && input.overrideGETbody)) {
+			// Added the parameter overrideGETbody, if present and set to true, then the Error won't be thrown and 
+			// it will be at the discretion of the caller to take care.
 			throw new TypeError('Request with GET/HEAD method cannot have body');
 		}
 
