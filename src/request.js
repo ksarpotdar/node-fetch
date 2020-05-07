@@ -91,7 +91,7 @@ export default class Request {
 
 		// eslint-disable-next-line no-eq-null, eqeqeq
 		if ((init.body != null || isRequest(input) && input.body !== null) &&
-			(method === 'GET'  & checkBodyllowedInGET === false || method === 'HEAD')) {
+			(method === 'GET'  && checkBodyllowedInGET === false || method === 'HEAD')) {
 			throw new TypeError('Request with GET/HEAD method cannot have body');
 		}
 
